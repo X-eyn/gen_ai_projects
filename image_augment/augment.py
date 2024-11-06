@@ -5,12 +5,11 @@ from PIL import Image, ImageEnhance, ImageFilter
 def augment_image(image_path, output_path, rotate=None, flip=None, scale=None, color_adjust=None, apply_filter=None):
 
     with Image.open(image_path) as img:
-        # Rotation
+
         if rotate is not None:
             img = img.rotate(rotate)
             print(f"Rotated by {rotate} degrees")
 
-        # Flip
         if flip == "horizontal":
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
             print("Flipped horizontally")
@@ -18,19 +17,16 @@ def augment_image(image_path, output_path, rotate=None, flip=None, scale=None, c
             img = img.transpose(Image.FLIP_TOP_BOTTOM)
             print("Flipped vertically")
 
-        # Scaling
         if scale is not None:
             new_size = (int(img.width * scale), int(img.height * scale))
             img = img.resize(new_size, Image.LANCZOS)
             print(f"Scaled by factor {scale}")
 
-        # Color adjustment
         if color_adjust is not None:
             enhancer = ImageEnhance.Color(img)
             img = enhancer.enhance(color_adjust)
             print(f"Color adjusted by factor {color_adjust}")
 
-        # Apply filter
         if apply_filter == "blur":
             img = img.filter(ImageFilter.GaussianBlur(radius=2))
             print("Applied Gaussian blur")
@@ -61,5 +57,5 @@ def batch_augment_images(input_folder, output_folder, rotate=None, flip=None, sc
 input_folder = "C:/Users/Admin/Downloads/Python OOP/genai_intern_projects/image_augment/images"
 output_folder = "C:/Users/Admin/Downloads/Python OOP/genai_intern_projects/image_augment/augmented_images"
 
-batch_augment_images(input_folder, output_folder, rotate=0,
-                     flip="horizontal", scale=1.2, color_adjust=1.5, apply_filter="edge")
+batch_augment_images(input_folder, output_folder, rotate=45,
+                     flip="horizontal", scale=1.2, color_adjust=1.5, apply_filter="blur")
