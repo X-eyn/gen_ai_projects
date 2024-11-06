@@ -37,4 +37,4 @@ def batch_resize_and_crop(input_folder, output_folder, target_width, target_heig
 input_folder = "C:/Users/Admin/Downloads/Python OOP/genai_intern_projects/resize_crop_tool/images"  # img inpt
 output_folder = "C:/Users/Admin/Downloads/Python OOP/genai_intern_projects/resize_crop_tool/processed_images"  # img outpt
 batch_resize_and_crop(input_folder, output_folder, 200,
-                      200, maintain_aspect_ratio=False)
+                      200, maintain_aspect_ratio=True)
