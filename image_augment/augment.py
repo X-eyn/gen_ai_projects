@@ -59,3 +59,4 @@ output_folder = "C:/Users/Admin/Downloads/Python OOP/genai_intern_projects/image
 
 batch_augment_images(input_folder, output_folder, rotate=45,
                      flip="horizontal", scale=1.2, color_adjust=1.5, apply_filter="blur")
+#Add more filters
