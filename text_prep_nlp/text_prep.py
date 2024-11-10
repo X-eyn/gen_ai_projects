@@ -1,18 +1,15 @@
-import re
 import nltk
+import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 
-
+# # Download necessary NLTK data if not already done
 # nltk.download('punkt')
 # nltk.download('stopwords')
 # nltk.download('wordnet')
 
 # Preprocessing function
-
-
 def preprocess_text(text):
     # Step 1: Lowercase the text
     text = text.lower()
@@ -33,8 +30,13 @@ def preprocess_text(text):
 
     return ' '.join(tokens)
 
+# Reading from the file
+file_path = r"C:\Users\Admin\Downloads\Python OOP\genai_intern_projects\text_prep_nlp\input.txt"  # Use raw string
 
-# Example
-sample_text = "The quick brown fox jumped over 2 lazy dogs! #amazing"
-processed_text = preprocess_text(sample_text)
-print(processed_text)
+with open(file_path, 'r', encoding='utf-8') as file:
+    # Read the file content
+    text = file.read()
+
+    # Preprocess the text
+    processed_text = preprocess_text(text)
+    print(processed_text)
